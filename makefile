@@ -1,11 +1,11 @@
 all: frequency
 
-frequency: trie.o frequency.o
-		gcc -Wall -g -o frequency trie.o frequency.o
+frequency: trie.o main.o
+		gcc -Wall -g -o frequency trie.o main.o
 trie.o: trie.c trie.h
 		gcc -Wall -g -fPIC -c trie.c
-frequency.o: frequency.c trie.h
-		gcc -Wall -g -fPIC -c frequency.c
+main.o: main.c trie.h
+		gcc -Wall -g -fPIC -c main.c
 
 .PHONY: clean all
 
